@@ -4,7 +4,7 @@ var mysql = require("mysql2");
 const fs = require('fs');
 
 const hostname = "0.0.0.0";
-const port = 3000;
+const port = 4000;
 console.log("0!");
 
 data = fs.readFileSync(process.env.MYSQL_PASSWORD_FILE, 'utf8')
