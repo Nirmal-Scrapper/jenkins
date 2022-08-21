@@ -10,6 +10,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
+                sh 'sudo sh mm.sh'
                 sh 'sudo sh nn.sh'
             }
         }
