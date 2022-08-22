@@ -14,14 +14,24 @@ pipeline {
             }
         }
         stage('deploy') {
-            when {
-                expression {
-                    env.TEST_RESULTS == true
-                }
-            }
-            steps {
-                sh 'sudo sh nn.sh'
-            }
+            // when {
+            //     expression {
+            //         env.TEST_RESULTS == true
+            //     }
+            // }
+            echo "${env.TEST_RESULTS}"
+            echo "${TEST_RESULTS}"
+            
+            // if(TEST_RESULTS == true){
+            //     echo "qqqqqqqqqqq"
+            // }
+            // if (env.TEST_RESULTS == true){
+            //     echo "mmmmmmmm"
+            // }
+
+            // steps {
+            //     sh 'sudo sh nn.sh'
+            // }
         }
 
         stage('post-build') {
