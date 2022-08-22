@@ -26,11 +26,11 @@ pipeline {
                 echo "${TEST_RESULTS}"
                 script {
                     if (TEST_RESULTS == true) {
-                        echo 'qqqqqqqqqqq'
+                        print('adjhgvasjhd')
                     }
                     print(TEST_RESULTS)
                     if ("${env.TEST_RESULTS}" == true) {
-                        echo 'mmmmmmmm'
+                        print('mmmmmmmm')
                     }
                 }
             }
