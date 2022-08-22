@@ -6,32 +6,33 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                // echo "${TEST_RESULTS}"
-                sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
-                sh 'sudo sh get-docker.sh'
-                sh 'sudo apt-get install docker-compose -y'
-                sh 'sudo sh mm.sh'
+                    // script {
+                    // echo "${TEST_RESULTS}"
+                    sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
+                    sh 'sudo sh get-docker.sh'
+                    sh 'sudo apt-get install docker-compose -y'
+                    sh 'sudo sh mm.sh'
+                // }
+                catchError {
+                    script {
+                        TEST_RESULTS = false
+                    }
+                }
             }
         }
         stage('deploy') {
-            // when {
-            //     expression {
-            //         env.TEST_RESULTS == true
-            //     }
-            // }
+            when {
+                expression {
+                    TEST_RESULTS
+                }
+            }
 
             steps {
-                //     sh 'sudo sh nn.sh'
                 // echo "${env.TEST_RESULTS}"
                 // echo "${TEST_RESULTS}"
                 script {
                     if (TEST_RESULTS) {
-                        print('adjhgvasjhd')
-                    }
-                    print(TEST_RESULTS)
-                    if (env.TEST_RESULTS) {
-                        print('mmmmmmmm')
-                    }
+                        sh 'sudo sh nn.sh'                    }
                 }
             }
         }
