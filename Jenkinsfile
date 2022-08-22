@@ -25,10 +25,10 @@ pipeline {
                 echo "${env.TEST_RESULTS}"
                 echo "${TEST_RESULTS}"
                 script {
-                    if (TEST_RESULTS == true) {
+                    if ("${TEST_RESULTS}" == true) {
                         echo 'qqqqqqqqqqq'
                     }
-                    if (env.TEST_RESULTS == true) {
+                    if ("${env.TEST_RESULTS}" == true) {
                         echo 'mmmmmmmm'
                     }
                 }
