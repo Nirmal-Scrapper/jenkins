@@ -22,14 +22,14 @@ pipeline {
 
             steps {
                 //     sh 'sudo sh nn.sh'
-                echo "${env.TEST_RESULTS}"
-                echo "${TEST_RESULTS}"
+                // echo "${env.TEST_RESULTS}"
+                // echo "${TEST_RESULTS}"
                 script {
-                    if (TEST_RESULTS == true) {
+                    if (TEST_RESULTS) {
                         print('adjhgvasjhd')
                     }
                     print(TEST_RESULTS)
-                    if ("${env.TEST_RESULTS}" == true) {
+                    if (env.TEST_RESULTS) {
                         print('mmmmmmmm')
                     }
                 }
