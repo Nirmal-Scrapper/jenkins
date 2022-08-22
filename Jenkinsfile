@@ -10,14 +10,16 @@ pipeline {
                 sh 'sudo sh get-docker.sh'
                 sh 'sudo apt-get install docker-compose -y'
                 sh 'sudo sh mm.sh'
-                TEST_RESULTS = true
             }
         }
         stage('deploy') {
-            steps {
-                if (TEST_RESULTS == true) {
-                    sh 'sudo sh nn.sh'
+            when {
+                    expression {
+                        TEST_RESULTS == true
+                    }
                 }
+            steps {
+                sh 'sudo sh nn.sh'
             }
         }
 
