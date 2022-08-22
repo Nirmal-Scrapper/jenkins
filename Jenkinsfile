@@ -16,7 +16,7 @@ pipeline {
                 catchError {
                     script {
                         TEST_RESULTS = false
-                        print(false)
+                        print(TEST_RESULTS)
                     }
                 }
             }
@@ -32,8 +32,10 @@ pipeline {
                 // echo "${env.TEST_RESULTS}"
                 // echo "${TEST_RESULTS}"
                 script {
+                    print(TEST_RESULTS)
                     if (TEST_RESULTS) {
-                        sh 'sudo sh nn.sh'                    }
+                        sh 'sudo sh nn.sh'
+                    }
                 }
             }
         }
