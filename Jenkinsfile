@@ -12,7 +12,8 @@ pipeline {
                         sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
                         sh 'sudo sh get-docker.sh'
                         sh 'sudo apt-get install docker-compose -y'
-                        sh 'sudo sh mm.sh'
+                        sh 'sudo sh build.sh'
+                        sh 'sudo sh rm.sh'
                     }
                     catch (Exception ex) {
                         TEST_RESULTS = false
@@ -34,7 +35,7 @@ pipeline {
                 script {
                     print(TEST_RESULTS)
                     if (TEST_RESULTS) {
-                        sh 'sudo sh nn.sh'
+                        sh 'sudo sh deploy.sh'
                     }
                 }
             }
