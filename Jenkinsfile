@@ -7,7 +7,7 @@ pipeline {
                 // sh 'sudo sh get-docker.sh'
                 sh 'sudo apt-get install docker-compose -y'
                 sh 'sudo sh mm.sh'
-                test_results = true
+                def test_results = true
             }
         }
         stage('deploy') {
