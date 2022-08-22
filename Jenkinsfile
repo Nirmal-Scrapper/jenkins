@@ -19,8 +19,6 @@ pipeline {
             //         env.TEST_RESULTS == true
             //     }
             // }
-            echo "${env.TEST_RESULTS}"
-            echo "${TEST_RESULTS}"
             
             // if(TEST_RESULTS == true){
             //     echo "qqqqqqqqqqq"
@@ -29,9 +27,12 @@ pipeline {
             //     echo "mmmmmmmm"
             // }
 
-            // steps {
+            steps {
             //     sh 'sudo sh nn.sh'
-            // }
+            echo "${env.TEST_RESULTS}"
+            echo "${TEST_RESULTS}"
+            
+            }
         }
 
         stage('post-build') {
