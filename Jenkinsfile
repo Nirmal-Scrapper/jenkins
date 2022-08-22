@@ -14,10 +14,10 @@ pipeline {
         }
         stage('deploy') {
             when {
-                    expression {
-                        TEST_RESULTS == true
-                    }
+                expression {
+                    TEST_RESULTS == true
                 }
+            }
             steps {
                 sh 'sudo sh nn.sh'
             }
