@@ -6,13 +6,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "${TEST_RESULTS}"
+                // echo "${TEST_RESULTS}"
                 sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
                 sh 'sudo sh get-docker.sh'
                 sh 'sudo apt-get install docker-compose -y'
                 sh 'sudo sh mm.sh'
             }
-            
         }
         stage('deploy') {
             when {
