@@ -1,18 +1,21 @@
 pipeline {
     agent any
+    environment {
+        TEST_RESULTS = true
+    }
     stages {
         stage('build') {
             steps {
                 sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
-                // sh 'sudo sh get-docker.sh'
+                sh 'sudo sh get-docker.sh'
                 sh 'sudo apt-get install docker-compose -y'
                 sh 'sudo sh mm.sh'
-                def test_results = true
+                TEST_RESULTS = true
             }
         }
         stage('deploy') {
             steps {
-                if (test_results == true) {
+                if (TEST_RESULTS == true) {
                     sh 'sudo sh nn.sh'
                 }
             }
