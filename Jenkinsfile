@@ -6,12 +6,15 @@ pipeline {
                 sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
                 // sh 'sudo sh get-docker.sh'
                 sh 'sudo apt-get install docker-compose -y'
+                sh 'sudo sh mm.sh'
+               test_results = true
             }
         }
         stage('deploy') {
             steps {
-                sh 'sudo sh mm.sh'
-                sh 'sudo sh nn.sh'
+                if test_results == true{
+                    sh 'sudo sh nn.sh'
+                }
             }
         }
 
