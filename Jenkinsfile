@@ -16,16 +16,17 @@ pipeline {
                 catchError {
                     script {
                         TEST_RESULTS = false
+                        print(false)
                     }
                 }
             }
         }
         stage('deploy') {
-            when {
-                expression {
-                    TEST_RESULTS
-                }
-            }
+            // when {
+            //     expression {
+            //         TEST_RESULTS
+            //     }
+            // }
 
             steps {
                 // echo "${env.TEST_RESULTS}"
