@@ -22,24 +22,24 @@ pipeline {
                 }
             }
         }
-        stage('deploy') {
+        // stage('deploy') {
             // when {
             //     expression {
             //         TEST_RESULTS
             //     }
             // }
 
-            steps {
+            // steps {
                 // echo "${env.TEST_RESULTS}"
                 // echo "${TEST_RESULTS}"
-                script {
-                    print(TEST_RESULTS)
-                    if (TEST_RESULTS) {
-                        sh 'sudo sh deploy.sh'
-                    }
-                }
-            }
-        }
+        //         script {
+        //             print(TEST_RESULTS)
+        //             if (TEST_RESULTS) {
+        //                 sh 'sudo sh deploy.sh'
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('post-build') {
             steps {
