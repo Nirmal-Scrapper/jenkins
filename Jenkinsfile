@@ -11,18 +11,18 @@ pipeline {
                     //  usernameVariable: 'MYUSER', passwordVariable: 'MYPWD' )]) {
                     //     echo "User: $MYUSER, Pwd: $MYPWD"
                     // }
-                    try {
-                        // echo "${TEST_RESULTS}"
-                        sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
-                        sh 'sudo sh get-docker.sh'
-                        sh 'sudo apt-get install docker-compose -y'
-                        sh 'sudo sh build.sh'
-                        sh 'sudo sh rm.sh'
-                    }
-                    catch (Exception ex) {
-                        TEST_RESULTS = false
-                        print(ex)
-                    }
+                    // try {
+                    //     // echo "${TEST_RESULTS}"
+                    //     sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
+                    //     sh 'sudo sh get-docker.sh'
+                    //     sh 'sudo apt-get install docker-compose -y'
+                    //     sh 'sudo sh build.sh'
+                    //     sh 'sudo sh rm.sh'
+                    // }
+                    // catch (Exception ex) {
+                    //     TEST_RESULTS = false
+                    //     print(ex)
+                    // }
                 }
             }
         }
