@@ -4,9 +4,9 @@ pipeline {
         TEST_RESULTS = true
     }
     stages {
-        stage('build') {
-            steps {
-                script {
+        // stage('build') {
+        //     steps {
+        //         script {
                     // withCredentials([usernamePassword( credentialsId: 'myCredentials',
                     //  usernameVariable: 'MYUSER', passwordVariable: 'MYPWD' )]) {
                     //     echo "User: $MYUSER, Pwd: $MYPWD"
@@ -23,9 +23,9 @@ pipeline {
                     //     TEST_RESULTS = false
                     //     print(ex)
                     // }
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
         // stage('deploy') {
             // when {
             //     expression {
