@@ -7,10 +7,10 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    withCredentials([usernamePassword( credentialsId: 'myCredentials', 
-                     usernameVariable: 'MYUSER', passwordVariable: 'MYPWD' )]) { 
-                        echo "User: $MYUSER, Pwd: $MYPWD" 
-                    }
+                    // withCredentials([usernamePassword( credentialsId: 'myCredentials', 
+                    //  usernameVariable: 'MYUSER', passwordVariable: 'MYPWD' )]) { 
+                    //     echo "User: $MYUSER, Pwd: $MYPWD" 
+                    // }
                     try {
                         // echo "${TEST_RESULTS}"
                         sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
@@ -48,11 +48,15 @@ pipeline {
         stage('post-build') {
             steps {
                 sh 'sudo aws ecr-public get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin public.ecr.aws/p3t0m4x7'
-                sh 'sudo docker tag mysq public.ecr.aws/p3t0m4x7/dock_task_mysql:latest'
-                sh 'sudo docker push public.ecr.aws/p3t0m4x7/dock_task_mysql:latest'
-                sh 'sudo docker tag nod 877969058937.dkr.ecr.us-east-1.amazonaws.com/nirmal_nod:latest'
-                sh 'sudo aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 877969058937.dkr.ecr.us-east-1.amazonaws.com'
-                sh 'sudo docker push 877969058937.dkr.ecr.us-east-1.amazonaws.com/nirmal_nod:latest'
+                app = docker.build("mysq")
+                docker.withRegistry('https://720766170633.dkr.ecr.us-east-2.amazonaws.com', '') {
+                    app.push("public.ecr.aws/p3t0m4x7/dock_task_mysql:${env.BUILD_NUMBER}")
+                }
+                // sh 'sudo docker tag mysq public.ecr.aws/p3t0m4x7/dock_task_mysql:latest'
+                // sh 'sudo docker push public.ecr.aws/p3t0m4x7/dock_task_mysql:latest'
+                // sh 'sudo docker tag nod 877969058937.dkr.ecr.us-east-1.amazonaws.com/nirmal_nod:latest'
+                // sh 'sudo aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 877969058937.dkr.ecr.us-east-1.amazonaws.com'
+                // sh 'sudo docker push 877969058937.dkr.ecr.us-east-1.amazonaws.com/nirmal_nod:latest'
             }
         }
     }
