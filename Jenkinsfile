@@ -7,6 +7,10 @@ pipeline {
         stage('build') {
             steps {
                 script {
+                    withCredentials([usernamePassword( credentialsId: 'myCredentials', 
+                     usernameVariable: 'MYUSER', passwordVariable: 'MYPWD' )]) { 
+                        echo "User: $MYUSER, Pwd: $MYPWD" 
+                    }
                     try {
                         // echo "${TEST_RESULTS}"
                         sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
