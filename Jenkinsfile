@@ -24,7 +24,7 @@ pipeline {
                     //     print(ex)
                     // }
         //         }
-        //     }
+            }
         }
         // stage('deploy') {
             // when {
