@@ -8,11 +8,12 @@ pipeline {
     }
     stages {
         stage('build') {
-            steps {
-                input{
+            input{
                     message "sdfvdsvdz"
                     ok "1"
                 }
+            steps {
+                
                         //         script {
                         // withCredentials([usernamePassword( credentialsId: 'myCredentials',
                         //  usernameVariable: 'MYUSER', passwordVariable: 'MYPWD' )]) {
