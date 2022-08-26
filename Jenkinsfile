@@ -12,6 +12,9 @@ pipeline {
                     //     echo "User: $MYUSER, Pwd: $MYPWD"
                     // }
                     // try {
+                        echo "${${params.BUILD_NUMBER}}"
+                        echo "${${env.BUILD_NUMBER}}"
+                        echo "${${BUILD_NUMBER}}"
                         echo "${TEST_RESULTS}"
                     //     sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
                     //     sh 'sudo sh get-docker.sh'
