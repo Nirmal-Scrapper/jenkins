@@ -7,34 +7,36 @@ pipeline {
         string(name: 'BUILD', defaultValue: '')
     }
     stages {
+        stage('ubh') {
+            input "Deploy to prod?"
+        }
         stage('build') {
-            input{
-                    message "sdfvdsvdz"
-                    ok "1"
-                }
             steps {
-                
-                        //         script {
+                script {
+                    // input {
+                    //     message 'sdfvdsvdz'
+                    //     ok '1'
+                    // }
                         // withCredentials([usernamePassword( credentialsId: 'myCredentials',
                         //  usernameVariable: 'MYUSER', passwordVariable: 'MYPWD' )]) {
                         //     echo "User: $MYUSER, Pwd: $MYPWD"
                         // }
-                        // try {
+                        try {
                         echo "${params.BUILD}"
                         echo "${env.BUILD}"
                         echo "${BUILD}"
                         echo "${TEST_RESULTS}"
-            //     sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
-            //     sh 'sudo sh get-docker.sh'
-            //     sh 'sudo apt-get install docker-compose -y'
-            //     sh 'sudo sh build.sh'
-            //     sh 'sudo sh rm.sh'
-            // }
-            // catch (Exception ex) {
-            //     TEST_RESULTS = false
-            //     print(ex)
-            // }
-            //         }
+                        //     sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
+                        //     sh 'sudo sh get-docker.sh'
+                        //     sh 'sudo apt-get install docker-compose -y'
+                        //     sh 'sudo sh build.sh'
+                        //     sh 'sudo sh rm.sh'
+                        }
+            catch (Exception ex) {
+                        TEST_RESULTS = false
+                        print(ex)
+            }
+                }
             }
         }
         // stage('deploy') {
