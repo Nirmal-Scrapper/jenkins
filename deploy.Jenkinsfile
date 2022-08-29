@@ -27,7 +27,7 @@ pipeline {
                         sh 'sudo aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 877969058937.dkr.ecr.us-east-1.amazonaws.com'
                         sh "sudo docker pull 877969058937.dkr.ecr.us-east-1.amazonaws.com/nirmal_nod:${env.BUILD}"
                         sh "sudo docker tag 877969058937.dkr.ecr.us-east-1.amazonaws.com/nirmal_nod:${env.BUILD} nod"
-                        sg 'sudo sh rm.sh'
+                        sh 'sudo sh rm.sh'
                         sh 'sudo sh deploy.sh'
                     }
                 catch (Exception ex) {
