@@ -8,9 +8,11 @@ pipeline {
     }
     stages {
         stage('sdad') {
-            input {
-                message 'Should we continue?'
-                ok 'Yes'
+            steps {
+                input {
+                    message 'Should we continue?'
+                    ok 'Yes'
+                }
             }
         }
         stage('deploy') {
