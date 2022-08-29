@@ -1,9 +1,10 @@
 version: 0.2
 phases:
   install:
-  - curl -fsSL https://get.docker.com -o get-docker.sh
-  - sudo sh get-docker.sh
-  - sudo apt-get install docker-compose -y
-  - sudo sh build.sh
-  - sudo sh rm.sh
-  - docker images
+    commands:
+      - curl -fsSL https://get.docker.com -o get-docker.sh
+      - sudo sh get-docker.sh
+      - sudo apt-get install docker-compose -y
+      - sudo sh build.sh
+      - sudo sh rm.sh
+      - docker images
