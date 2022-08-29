@@ -7,8 +7,9 @@ pipeline {
         string(name: 'BUILD', defaultValue: '')
     }
     stages {
-         stage('ubh') {
-            input 'Deploy?'
+          input {
+                message "Should we continue?"
+                ok "Yes"
         }
         stage('deploy') {
             steps {
