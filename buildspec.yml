@@ -12,7 +12,7 @@ phases:
       - sudo sh rm.sh
       - docker images
 
-  push: 
+  post_build: 
     commands:
       - sudo aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 877969058937.dkr.ecr.us-east-1.amazonaws.com
       - sudo docker tag nod 877969058937.dkr.ecr.us-east-1.amazonaws.com/nirmal_nod:latest
