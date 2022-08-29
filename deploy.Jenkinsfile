@@ -10,7 +10,7 @@ pipeline {
         stage('sdad') {
             steps {
                 input {
-                    message 'Should we continue?'
+                    message 'Should we continue?',
                     ok 'Yes'
                 }
             }
