@@ -15,7 +15,6 @@ phases:
       - apt-get install awscli -y
       - aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 877969058937.dkr.ecr.us-east-1.amazonaws.com
 
-
   post_build: 
     commands:
       - sudo docker tag nod 877969058937.dkr.ecr.us-east-1.amazonaws.com/nirmal_nod:latest
