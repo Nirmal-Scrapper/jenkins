@@ -30,9 +30,11 @@ pipeline {
         }
 
         stage('clean') {
+            steps{
             sh "docker rmi public.ecr.aws/p3t0m4x7/dock_task_mysql:${env.BUILD}"
             sh "docker rmi 877969058937.dkr.ecr.us-east-1.amazonaws.com/nirmal_nod:${env.BUILD}"
             sh 'rm .env'
+            }
         }
     }
 }
