@@ -11,7 +11,7 @@ phases:
       - sudo sh build.sh
       - sudo sh rm.sh
       - docker images
-      - sudo apt install awscli -y
+      - sudo apt-get install awscli -y
 
   post_build: 
     commands:
