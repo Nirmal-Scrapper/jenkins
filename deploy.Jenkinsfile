@@ -11,6 +11,7 @@ pipeline {
                 message "Should we continue?"
                 ok "Yes"
         }
+    }
         stage('deploy') {
             steps {
                 script {
