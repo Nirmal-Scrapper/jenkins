@@ -13,10 +13,6 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    // input {
-                    //     message 'sdfvdsvdz'
-                    //     ok '1'
-                    // }
                         // withCredentials([usernamePassword( credentialsId: 'myCredentials',
                         //  usernameVariable: 'MYUSER', passwordVariable: 'MYPWD' )]) {
                         //     echo "User: $MYUSER, Pwd: $MYPWD"
